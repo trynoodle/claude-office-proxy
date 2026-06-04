@@ -146,7 +146,7 @@ routing:
 
 代理与任何兼容 OpenAI Chat Completions API 或 Anthropic Messages API 的后端兼容。工具调用效果取决于模型自身能力——响应指令越准确的模型，Office 操作成功率越高。
 
-已实际测试的后端包括 DeepSeek、小米 Mimo、GPT-5.5（RouterTeam）、Ollama 本地模型等。完整的端到端测试报告见项目文档。
+已实际测试的后端包括 DeepSeek、小米 Mimo、第三方中转站、Ollama 本地模型等。完整的端到端测试报告见项目文档。
 
 ## 版本历史
 
