@@ -1,0 +1,49 @@
+# claude-office-proxy 配置模板
+# 复制为 config.yaml，填入你的 API key 即可
+
+# ===== 重要 =====
+# model ID 必须为 claude-{name}-{major}-{minor}-{YYYYMMDD} 格式
+# 否则 Office 插件过滤后列表为空，会回退到手动输入
+
+server:
+  port: 8766
+  host: 0.0.0.0
+  token: kaicode
+
+models:
+  - claude-opus-4-7-20250820
+  - claude-sonnet-4-6-20250820
+  - claude-haiku-4-5-20250820
+
+providers:
+  deepseek:
+    type: openai          # openai: 协议翻译；anthropic: 直通
+    base_url: https://api.deepseek.com/v1
+    api_key: sk-YOUR-KEY
+
+  mimo:
+    type: openai
+    base_url: https://token-plan-sgp.xiaomimimo.com/v1
+    api_key: tp-YOUR-KEY
+
+  # Ollama 本地模型示例
+  # ollama:
+  #   type: openai
+  #   base_url: http://localhost:11434/v1
+  #   api_key: ollama
+
+routing:
+  "claude-opus-4-7-20250820":
+    provider: deepseek
+    model: deepseek-v4-pro
+    display_name: DeepSeek V4 Pro     # 插件里显示的名字
+
+  "claude-sonnet-4-6-20250820":
+    provider: mimo
+    model: mimo-v2.5
+    display_name: Mimo v2.5
+
+  "claude-haiku-4-5-20250820":
+    provider: mimo
+    model: mimo-v2.5-pro
+    display_name: Mimo v2.5 Pro

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "claude-office-proxy"
+version = "0.2.0"
+description = "Bidirectional Anthropic/OpenAI protocol translation proxy. Enables Claude for M365 add-ins to use any OpenAI-compatible backend with full tool calling."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp>=3.9",
+    "pyyaml>=6.0",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Office Suites",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["claude", "office", "excel", "powerpoint", "word", "deepseek", "mimo", "openai", "proxy", "anthropic"]
+
+[project.scripts]
+claude-office-proxy = "claude_office_proxy.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/trynoodle/claude-office-proxy"
+Issues = "https://github.com/trynoodle/claude-office-proxy/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
